@@ -14,28 +14,41 @@ Additionally, the homepage provides essential information about common skin dise
 The website is currently under development, with plans to add a medicine reader and other features in the future.
 
 ## Technologies Used
-- **Programming Languages**: Python, HTML, CSS
-- **Frameworks**: Django
-- **Machine Learning Libraries**: TensorFlow, Pandas
-- **Models**:
-  - Image Classifier (for disease detection)
-  - Linear Regression (for health cost predictions)
+### Programming Languages
+
+**Python**: A versatile, high-level programming language known for its readability and wide-ranging applications in web development, data science, and automation.
+
+**HTML**: The standard markup language for creating web pages, structuring content with elements like headings, paragraphs, and links.
+
+**CSS**: A stylesheet language that controls the visual presentation of HTML documents, allowing for layout, colors, and responsive designs.
+
+### Frameworks
+
+**Django**: A high-level Python web framework that simplifies web development with built-in features like an ORM and authentication, promoting rapid application creation.
+
+### Machine Learning Libraries
+
+**TensorFlow**: An open-source library for machine learning developed by Google, enabling the creation of deep learning models for tasks like image recognition and NLP.
+
+**Pandas**: A data manipulation library in Python that provides DataFrames for efficient data analysis and cleaning, essential for data science tasks.
+
+### Models
+
+**Image Classifier (for disease detection)**: A machine learning model that analyzes medical images to identify diseases by learning from labeled datasets.
+
+**Linear Regression (for health cost predictions)**: A statistical model that predicts healthcare costs based on independent variables, helping forecast future expenditures.
 
 ## Dataset Description
 The datasets used for training the AI models were sourced from two reputable websites. These datasets include a variety of images depicting different skin conditions and relevant health cost parameters. Access the datasets here:
-- [Detect Disease dataset](https://data.mendeley.com/datasets/3hckgznc67/1)
+- [Detect Disease dataset](https://data.mendeley.com/datasets/3hckgznc67/1) 
 - [Health Cost Calculator Dataset](https://www.synthesized.io/data-template-pages/medical-cost-personal-dataset)
 
-## Future Modifications and Features
-- **Medicine Reader**: A feature that allows users to scan medication labels for information.
-- **User Authentication**: Implementing user accounts for personalized experiences.
-- **Mobile Responsiveness**: Ensuring the website is fully functional on mobile devices.
-- **Expanded Disease Database**: Adding more diseases and conditions for detection.
-- **User Feedback System**: Allowing users to provide feedback on predictions for continuous improvement.
 
 ## How It Works
 
 ![Image](https://github.com/user-attachments/assets/86484bae-c316-4486-a491-45361504d791)
+
+
 
 
 ![Image](https://github.com/user-attachments/assets/fb758c8e-4d01-4bbb-aee4-7263d873c521)
@@ -68,6 +81,13 @@ To set up MediHelper locally, follow these steps:
    ```
 
 5. Open your web browser and visit `http://localhost:8000/` to view the application.
+
+## Future Modifications
+- **Medicine Reader**: A feature that allows users to scan medication labels for information.
+- **User Authentication**: Implementing user accounts for personalized experiences.
+- **Mobile Responsiveness**: Ensuring the website is fully functional on mobile devices.
+- **Expanded Disease Database**: Adding more diseases and conditions for detection.
+- **User Feedback System**: Allowing users to provide feedback on predictions for continuous improvement.
 
 ## Conclusion
 MediHelper is poised to become a valuable resource for individuals seeking assistance with skin-related health issues and managing healthcare costs. By leveraging AI technologies, it aims to provide accurate predictions and valuable insights, ultimately enhancing user experience and promoting better health management.

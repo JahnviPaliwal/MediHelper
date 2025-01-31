@@ -16,27 +16,27 @@ The website is currently under development, with plans to add a medicine reader 
 ## Technologies Used
 ### Programming Languages
 
-**Python**: A versatile, high-level programming language known for its readability and wide-ranging applications in web development, data science, and automation.
+- **Python**: A versatile, high-level programming language known for its readability and wide-ranging applications in web development, data science, and automation.
 
-**HTML**: The standard markup language for creating web pages, structuring content with elements like headings, paragraphs, and links.
+- **HTML**: The standard markup language for creating web pages, structuring content with elements like headings, paragraphs, and links.
 
-**CSS**: A stylesheet language that controls the visual presentation of HTML documents, allowing for layout, colors, and responsive designs.
+- **CSS**: A stylesheet language that controls the visual presentation of HTML documents, allowing for layout, colors, and responsive designs.
 
 ### Frameworks
 
-**Django**: A high-level Python web framework that simplifies web development with built-in features like an ORM and authentication, promoting rapid application creation.
+- **Django**: A high-level Python web framework that simplifies web development with built-in features like an ORM and authentication, promoting rapid application creation.
 
 ### Machine Learning Libraries
 
-**TensorFlow**: An open-source library for machine learning developed by Google, enabling the creation of deep learning models for tasks like image recognition and NLP.
+- **TensorFlow**: An open-source library for machine learning developed by Google, enabling the creation of deep learning models for tasks like image recognition and NLP.
 
-**Pandas**: A data manipulation library in Python that provides DataFrames for efficient data analysis and cleaning, essential for data science tasks.
+- **Pandas**: A data manipulation library in Python that provides DataFrames for efficient data analysis and cleaning, essential for data science tasks.
 
 ### Models
 
-**Image Classifier (for disease detection)**: A machine learning model that analyzes medical images to identify diseases by learning from labeled datasets.
+- **Image Classifier (for disease detection)**: A machine learning model that analyzes medical images to identify diseases by learning from labeled datasets.
 
-**Linear Regression (for health cost predictions)**: A statistical model that predicts healthcare costs based on independent variables, helping forecast future expenditures.
+- **Linear Regression (for health cost predictions)**: A statistical model that predicts healthcare costs based on independent variables, helping forecast future expenditures.
 
 ## Dataset Description
 The datasets used for training the AI models were sourced from two reputable websites. These datasets include a variety of images depicting different skin conditions and relevant health cost parameters. Access the datasets here:
@@ -47,8 +47,6 @@ The datasets used for training the AI models were sourced from two reputable web
 ## How It Works
 
 ![Image](https://github.com/user-attachments/assets/86484bae-c316-4486-a491-45361504d791)
-
-
 
 
 ![Image](https://github.com/user-attachments/assets/fb758c8e-4d01-4bbb-aee4-7263d873c521)

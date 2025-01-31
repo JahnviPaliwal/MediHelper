@@ -81,11 +81,11 @@ To set up MediHelper locally, follow these steps:
 5. Open your web browser and visit `http://localhost:8000/` to view the application.
 
 ## Future Modifications
-- **Medicine Reader**: A feature that allows users to scan medication labels for information.
+- **Medicine Scanner**: A feature that allows users to scan medication labels for information.
 - **User Authentication**: Implementing user accounts for personalized experiences.
 - **Mobile Responsiveness**: Ensuring the website is fully functional on mobile devices.
 - **Expanded Disease Database**: Adding more diseases and conditions for detection.
-- **User Feedback System**: Allowing users to provide feedback on predictions for continuous improvement.
+- **Chat bot**: Allowing users to interact as well as provide feedback on predictions for continuous improvement.
 
 ## Conclusion
 MediHelper is poised to become a valuable resource for individuals seeking assistance with skin-related health issues and managing healthcare costs. By leveraging AI technologies, it aims to provide accurate predictions and valuable insights, ultimately enhancing user experience and promoting better health management.

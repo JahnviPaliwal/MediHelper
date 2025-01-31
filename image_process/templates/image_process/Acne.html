@@ -1,0 +1,1587 @@
+<!doctype html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MediHelper</title>
+
+
+
+
+<!-- <&#45;&#45;NavBar&ndash;&gt;-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary text bg-primary">
+  <div class="container-fluid bg-primary">
+       <a class="navbar-brand" href="#">
+        <h4 class="text-light">
+      <img src="https://static.thenounproject.com/png/4059695-200.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+      MediHelper</h4>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="{% url 'Home' %}">Home</a>
+        <a class="nav-link" href="{% url 'upload_image' %}">Detect Disease</a>
+        <a class="nav-link" href="{% url 'user_profile' %}">Cost Calculator</a>
+        <a class="nav-link disabled" aria-disabled="true">Medicine Scanner</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- <-&#45;&#45;NavBar-&ndash;&gt;-->
+
+
+
+
+<style type="text/css">.docx-wrapper>section.docx {
+  background: white;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+  width:96%!important;
+  margin: 0 auto;
+  margin-top:calc(30px);
+  }
+  .docx {
+    color: black;
+  }
+  section.docx {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    overflow: hidden;
+  }
+  section.docx>article {
+    margin-bottom: auto;
+  }
+  .docx table {
+    border-collapse: collapse;
+  }
+  .docx table td, .docx table th {
+    vertical-align: top;
+  }
+  .docx p {
+    margin: 0pt;
+    min-height: 1em;
+  }
+  .docx span {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  .docx a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+</style>
+<style type="text/css">.docx {
+  --docx-majorHAnsi-font: Aptos Display;
+  --docx-minorHAnsi-font: Aptos;
+  --docx-dk1-color: #000000;
+  --docx-lt1-color: #FFFFFF;
+  --docx-dk2-color: #0E2841;
+  --docx-lt2-color: #E8E8E8;
+  --docx-accent1-color: #156082;
+  --docx-accent2-color: #E97132;
+  --docx-accent3-color: #196B24;
+  --docx-accent4-color: #0F9ED5;
+  --docx-accent5-color: #A02B93;
+  --docx-accent6-color: #4EA72E;
+  --docx-hlink-color: #467886;
+  --docx-folHlink-color: #96607D;
+  }
+</style>
+<style type="text/css">.docx span {
+  font-family: var(--docx-minorHAnsi-font);
+  min-height: 12.00pt;
+  font-size: 12.00pt;
+  }
+  .docx p {
+    margin-bottom: 8.00pt;
+    line-height: 1.16;
+  }
+  p.docx_heading1 {
+    margin-top: 18.00pt;
+    margin-bottom: 4.00pt;
+  }
+  p.docx_heading1 span {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 20.00pt;
+    font-size: 20.00pt;
+  }
+  p.docx_heading1 span {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 20.00pt;
+    font-size: 20.00pt;
+  }
+  p.docx_heading2 {
+    margin-top: 8.00pt;
+    margin-bottom: 4.00pt;
+  }
+  p.docx_heading2 span {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 16.00pt;
+    font-size: 16.00pt;
+  }
+  p.docx_heading2 span {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 16.00pt;
+    font-size: 16.00pt;
+  }
+  p.docx_heading3 {
+    margin-top: 8.00pt;
+    margin-bottom: 4.00pt;
+  }
+  p.docx_heading3 span {
+    color: #0F4761;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  p.docx_heading3 span {
+    color: #0F4761;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  p.docx_heading4 {
+    margin-top: 4.00pt;
+    margin-bottom: 2.00pt;
+  }
+  p.docx_heading4 span {
+    font-style: italic;
+    color: #0F4761;
+  }
+  p.docx_heading4 span {
+    font-style: italic;
+    color: #0F4761;
+  }
+  p.docx_heading5 {
+    margin-top: 4.00pt;
+    margin-bottom: 2.00pt;
+  }
+  p.docx_heading5 span {
+    color: #0F4761;
+  }
+  p.docx_heading5 span {
+    color: #0F4761;
+  }
+  p.docx_heading6 {
+    margin-top: 2.00pt;
+    margin-bottom: 0.00pt;
+  }
+  p.docx_heading6 span {
+    font-style: italic;
+    color: #595959;
+  }
+  p.docx_heading6 span {
+    font-style: italic;
+    color: #595959;
+  }
+  p.docx_heading7 {
+    margin-top: 2.00pt;
+    margin-bottom: 0.00pt;
+  }
+  p.docx_heading7 span {
+    color: #595959;
+  }
+  p.docx_heading7 span {
+    color: #595959;
+  }
+  p.docx_heading8 {
+    margin-bottom: 0.00pt;
+  }
+  p.docx_heading8 span {
+    font-style: italic;
+    color: #272727;
+  }
+  p.docx_heading8 span {
+    font-style: italic;
+    color: #272727;
+  }
+  p.docx_heading9 {
+    margin-bottom: 0.00pt;
+  }
+  p.docx_heading9 span {
+    color: #272727;
+  }
+  p.docx_heading9 span {
+    color: #272727;
+  }
+  .docx table, table.docx_tablenormal td {
+    padding-top: 0.00pt;
+    padding-left: 5.40pt;
+    padding-bottom: 0.00pt;
+    padding-right: 5.40pt;
+  }
+  span.docx_heading1char {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 20.00pt;
+    font-size: 20.00pt;
+  }
+  span.docx_heading1char p {
+    margin-top: 18.00pt;
+    margin-bottom: 4.00pt;
+  }
+  span.docx_heading1char {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 20.00pt;
+    font-size: 20.00pt;
+  }
+  span.docx_heading2char {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 16.00pt;
+    font-size: 16.00pt;
+  }
+  span.docx_heading2char p {
+    margin-top: 8.00pt;
+    margin-bottom: 4.00pt;
+  }
+  span.docx_heading2char {
+    font-family: var(--docx-majorHAnsi-font);
+    color: #0F4761;
+    min-height: 16.00pt;
+    font-size: 16.00pt;
+  }
+  span.docx_heading3char {
+    color: #0F4761;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  span.docx_heading3char p {
+    margin-top: 8.00pt;
+    margin-bottom: 4.00pt;
+  }
+  span.docx_heading3char {
+    color: #0F4761;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  span.docx_heading4char {
+    font-style: italic;
+    color: #0F4761;
+  }
+  span.docx_heading4char p {
+    margin-top: 4.00pt;
+    margin-bottom: 2.00pt;
+  }
+  span.docx_heading4char {
+    font-style: italic;
+    color: #0F4761;
+  }
+  span.docx_heading5char {
+    color: #0F4761;
+  }
+  span.docx_heading5char p {
+    margin-top: 4.00pt;
+    margin-bottom: 2.00pt;
+  }
+  span.docx_heading5char {
+    color: #0F4761;
+  }
+  span.docx_heading6char {
+    font-style: italic;
+    color: #595959;
+  }
+  span.docx_heading6char p {
+    margin-top: 2.00pt;
+    margin-bottom: 0.00pt;
+  }
+  span.docx_heading6char {
+    font-style: italic;
+    color: #595959;
+  }
+  span.docx_heading7char {
+    color: #595959;
+  }
+  span.docx_heading7char p {
+    margin-top: 2.00pt;
+    margin-bottom: 0.00pt;
+  }
+  span.docx_heading7char {
+    color: #595959;
+  }
+  span.docx_heading8char {
+    font-style: italic;
+    color: #272727;
+  }
+  span.docx_heading8char p {
+    margin-bottom: 0.00pt;
+  }
+  span.docx_heading8char {
+    font-style: italic;
+    color: #272727;
+  }
+  span.docx_heading9char {
+    color: #272727;
+  }
+  span.docx_heading9char p {
+    margin-bottom: 0.00pt;
+  }
+  span.docx_heading9char {
+    color: #272727;
+  }
+  p.docx_title {
+    margin-bottom: 4.00pt;
+    line-height: 1.00;
+  }
+  p.docx_title span {
+    font-family: var(--docx-majorHAnsi-font);
+    min-height: 28.00pt;
+    font-size: 28.00pt;
+  }
+  p.docx_title span {
+    font-family: var(--docx-majorHAnsi-font);
+    min-height: 28.00pt;
+    font-size: 28.00pt;
+  }
+  span.docx_titlechar {
+    font-family: var(--docx-majorHAnsi-font);
+    min-height: 28.00pt;
+    font-size: 28.00pt;
+  }
+  span.docx_titlechar p {
+    margin-bottom: 4.00pt;
+    line-height: 1.00;
+  }
+  span.docx_titlechar {
+    font-family: var(--docx-majorHAnsi-font);
+    min-height: 28.00pt;
+    font-size: 28.00pt;
+  }
+  p.docx_subtitle {
+  }
+  p.docx_subtitle span {
+    color: #595959;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  p.docx_subtitle span {
+    color: #595959;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  span.docx_subtitlechar {
+    color: #595959;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  span.docx_subtitlechar p {
+  }
+  span.docx_subtitlechar {
+    color: #595959;
+    min-height: 14.00pt;
+    font-size: 14.00pt;
+  }
+  p.docx_quote {
+    margin-top: 8.00pt;
+    text-align: center;
+  }
+  p.docx_quote span {
+    font-style: italic;
+    color: #404040;
+  }
+  p.docx_quote span {
+    font-style: italic;
+    color: #404040;
+  }
+  span.docx_quotechar {
+    font-style: italic;
+    color: #404040;
+  }
+  span.docx_quotechar p {
+    margin-top: 8.00pt;
+    text-align: center;
+  }
+  span.docx_quotechar {
+    font-style: italic;
+    color: #404040;
+  }
+  p.docx_listparagraph {
+    margin-left: 36.00pt;
+  }
+  span.docx_intenseemphasis {
+    font-style: italic;
+    color: #0F4761;
+  }
+  p.docx_intensequote {
+    border-top: 0.50pt solid #0F4761;
+    border-bottom: 0.50pt solid #0F4761;
+    margin-top: 18.00pt;
+    margin-bottom: 18.00pt;
+    margin-left: 43.20pt;
+    margin-right: 43.20pt;
+    text-align: center;
+  }
+  p.docx_intensequote span {
+    font-style: italic;
+    color: #0F4761;
+  }
+  p.docx_intensequote span {
+    font-style: italic;
+    color: #0F4761;
+  }
+  span.docx_intensequotechar {
+    font-style: italic;
+    color: #0F4761;
+  }
+  span.docx_intensequotechar p {
+    border-top: 0.50pt solid #0F4761;
+    border-bottom: 0.50pt solid #0F4761;
+    margin-top: 18.00pt;
+    margin-bottom: 18.00pt;
+    margin-left: 43.20pt;
+    margin-right: 43.20pt;
+    text-align: center;
+  }
+  span.docx_intensequotechar {
+    font-style: italic;
+    color: #0F4761;
+  }
+  span.docx_intensereference {
+    font-weight: bold;
+    text-transform: lowercase;
+    color: #0F4761;
+  }
+  span.docx_hyperlink {
+    color: #467886;
+    text-decoration: underline;
+  }
+  span.docx_unresolvedmention {
+    color: #605E5C;
+    background-color: #E1DFDD;
+  }
+</style>
+<style type="text/css">p.docx-num-2-0:before {
+  content: "\9";
+  counter-increment: docx-num-2-0;
+  font-family: Symbol;
+  min-height: 10.00pt;
+  font-size: 10.00pt;
+  }
+  p.docx-num-2-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-2-0 {
+    counter-reset: docx-num-2-1;
+  }
+  p.docx-num-2-1:before {
+    content: "\9";
+    counter-increment: docx-num-2-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-2-1 {
+    counter-reset: docx-num-2-2;
+  }
+  p.docx-num-2-2:before {
+    content: "\9";
+    counter-increment: docx-num-2-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-2-2 {
+    counter-reset: docx-num-2-3;
+  }
+  p.docx-num-2-3:before {
+    content: "\9";
+    counter-increment: docx-num-2-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-2-3 {
+    counter-reset: docx-num-2-4;
+  }
+  p.docx-num-2-4:before {
+    content: "\9";
+    counter-increment: docx-num-2-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-2-4 {
+    counter-reset: docx-num-2-5;
+  }
+  p.docx-num-2-5:before {
+    content: "\9";
+    counter-increment: docx-num-2-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-2-5 {
+    counter-reset: docx-num-2-6;
+  }
+  p.docx-num-2-6:before {
+    content: "\9";
+    counter-increment: docx-num-2-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-2-6 {
+    counter-reset: docx-num-2-7;
+  }
+  p.docx-num-2-7:before {
+    content: "\9";
+    counter-increment: docx-num-2-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-2-7 {
+    counter-reset: docx-num-2-8;
+  }
+  p.docx-num-2-8:before {
+    content: "\9";
+    counter-increment: docx-num-2-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-2-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  p.docx-num-3-0:before {
+    content: "\9";
+    counter-increment: docx-num-3-0;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-3-0 {
+    counter-reset: docx-num-3-1;
+  }
+  p.docx-num-3-1:before {
+    content: "\9";
+    counter-increment: docx-num-3-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-3-1 {
+    counter-reset: docx-num-3-2;
+  }
+  p.docx-num-3-2:before {
+    content: "\9";
+    counter-increment: docx-num-3-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-3-2 {
+    counter-reset: docx-num-3-3;
+  }
+  p.docx-num-3-3:before {
+    content: "\9";
+    counter-increment: docx-num-3-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-3-3 {
+    counter-reset: docx-num-3-4;
+  }
+  p.docx-num-3-4:before {
+    content: "\9";
+    counter-increment: docx-num-3-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-3-4 {
+    counter-reset: docx-num-3-5;
+  }
+  p.docx-num-3-5:before {
+    content: "\9";
+    counter-increment: docx-num-3-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-3-5 {
+    counter-reset: docx-num-3-6;
+  }
+  p.docx-num-3-6:before {
+    content: "\9";
+    counter-increment: docx-num-3-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-3-6 {
+    counter-reset: docx-num-3-7;
+  }
+  p.docx-num-3-7:before {
+    content: "\9";
+    counter-increment: docx-num-3-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-3-7 {
+    counter-reset: docx-num-3-8;
+  }
+  p.docx-num-3-8:before {
+    content: "\9";
+    counter-increment: docx-num-3-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-3-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  p.docx-num-1-0:before {
+    content: "\9";
+    counter-increment: docx-num-1-0;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-1-0 {
+    counter-reset: docx-num-1-1;
+  }
+  p.docx-num-1-1:before {
+    content: "\9";
+    counter-increment: docx-num-1-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-1-1 {
+    counter-reset: docx-num-1-2;
+  }
+  p.docx-num-1-2:before {
+    content: "\9";
+    counter-increment: docx-num-1-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-1-2 {
+    counter-reset: docx-num-1-3;
+  }
+  p.docx-num-1-3:before {
+    content: "\9";
+    counter-increment: docx-num-1-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-1-3 {
+    counter-reset: docx-num-1-4;
+  }
+  p.docx-num-1-4:before {
+    content: "\9";
+    counter-increment: docx-num-1-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-1-4 {
+    counter-reset: docx-num-1-5;
+  }
+  p.docx-num-1-5:before {
+    content: "\9";
+    counter-increment: docx-num-1-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-1-5 {
+    counter-reset: docx-num-1-6;
+  }
+  p.docx-num-1-6:before {
+    content: "\9";
+    counter-increment: docx-num-1-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-1-6 {
+    counter-reset: docx-num-1-7;
+  }
+  p.docx-num-1-7:before {
+    content: "\9";
+    counter-increment: docx-num-1-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-1-7 {
+    counter-reset: docx-num-1-8;
+  }
+  p.docx-num-1-8:before {
+    content: "\9";
+    counter-increment: docx-num-1-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-1-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  p.docx-num-7-0:before {
+    content: "\9";
+    counter-increment: docx-num-7-0;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-7-0 {
+    counter-reset: docx-num-7-1;
+  }
+  p.docx-num-7-1:before {
+    content: "\9";
+    counter-increment: docx-num-7-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-7-1 {
+    counter-reset: docx-num-7-2;
+  }
+  p.docx-num-7-2:before {
+    content: "\9";
+    counter-increment: docx-num-7-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-7-2 {
+    counter-reset: docx-num-7-3;
+  }
+  p.docx-num-7-3:before {
+    content: "\9";
+    counter-increment: docx-num-7-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-7-3 {
+    counter-reset: docx-num-7-4;
+  }
+  p.docx-num-7-4:before {
+    content: "\9";
+    counter-increment: docx-num-7-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-7-4 {
+    counter-reset: docx-num-7-5;
+  }
+  p.docx-num-7-5:before {
+    content: "\9";
+    counter-increment: docx-num-7-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-7-5 {
+    counter-reset: docx-num-7-6;
+  }
+  p.docx-num-7-6:before {
+    content: "\9";
+    counter-increment: docx-num-7-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-7-6 {
+    counter-reset: docx-num-7-7;
+  }
+  p.docx-num-7-7:before {
+    content: "\9";
+    counter-increment: docx-num-7-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-7-7 {
+    counter-reset: docx-num-7-8;
+  }
+  p.docx-num-7-8:before {
+    content: "\9";
+    counter-increment: docx-num-7-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-7-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  p.docx-num-4-0:before {
+    content: "\9";
+    counter-increment: docx-num-4-0;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-4-0 {
+    counter-reset: docx-num-4-1;
+  }
+  p.docx-num-4-1:before {
+    content: "\9";
+    counter-increment: docx-num-4-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-4-1 {
+    counter-reset: docx-num-4-2;
+  }
+  p.docx-num-4-2:before {
+    content: "\9";
+    counter-increment: docx-num-4-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-4-2 {
+    counter-reset: docx-num-4-3;
+  }
+  p.docx-num-4-3:before {
+    content: "\9";
+    counter-increment: docx-num-4-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-4-3 {
+    counter-reset: docx-num-4-4;
+  }
+  p.docx-num-4-4:before {
+    content: "\9";
+    counter-increment: docx-num-4-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-4-4 {
+    counter-reset: docx-num-4-5;
+  }
+  p.docx-num-4-5:before {
+    content: "\9";
+    counter-increment: docx-num-4-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-4-5 {
+    counter-reset: docx-num-4-6;
+  }
+  p.docx-num-4-6:before {
+    content: "\9";
+    counter-increment: docx-num-4-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-4-6 {
+    counter-reset: docx-num-4-7;
+  }
+  p.docx-num-4-7:before {
+    content: "\9";
+    counter-increment: docx-num-4-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-4-7 {
+    counter-reset: docx-num-4-8;
+  }
+  p.docx-num-4-8:before {
+    content: "\9";
+    counter-increment: docx-num-4-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-4-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  p.docx-num-6-0:before {
+    content: "\9";
+    counter-increment: docx-num-6-0;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-6-0 {
+    counter-reset: docx-num-6-1;
+  }
+  p.docx-num-6-1:before {
+    content: "\9";
+    counter-increment: docx-num-6-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-6-1 {
+    counter-reset: docx-num-6-2;
+  }
+  p.docx-num-6-2:before {
+    content: "\9";
+    counter-increment: docx-num-6-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-6-2 {
+    counter-reset: docx-num-6-3;
+  }
+  p.docx-num-6-3:before {
+    content: "\9";
+    counter-increment: docx-num-6-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-6-3 {
+    counter-reset: docx-num-6-4;
+  }
+  p.docx-num-6-4:before {
+    content: "\9";
+    counter-increment: docx-num-6-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-6-4 {
+    counter-reset: docx-num-6-5;
+  }
+  p.docx-num-6-5:before {
+    content: "\9";
+    counter-increment: docx-num-6-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-6-5 {
+    counter-reset: docx-num-6-6;
+  }
+  p.docx-num-6-6:before {
+    content: "\9";
+    counter-increment: docx-num-6-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-6-6 {
+    counter-reset: docx-num-6-7;
+  }
+  p.docx-num-6-7:before {
+    content: "\9";
+    counter-increment: docx-num-6-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-6-7 {
+    counter-reset: docx-num-6-8;
+  }
+  p.docx-num-6-8:before {
+    content: "\9";
+    counter-increment: docx-num-6-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-6-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  p.docx-num-5-0:before {
+    content: "\9";
+    counter-increment: docx-num-5-0;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-0 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 36.00pt;
+  }
+  p.docx-num-5-0 {
+    counter-reset: docx-num-5-1;
+  }
+  p.docx-num-5-1:before {
+    content: "\9";
+    counter-increment: docx-num-5-1;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-1 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 72.00pt;
+  }
+  p.docx-num-5-1 {
+    counter-reset: docx-num-5-2;
+  }
+  p.docx-num-5-2:before {
+    content: "\9";
+    counter-increment: docx-num-5-2;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-2 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 108.00pt;
+  }
+  p.docx-num-5-2 {
+    counter-reset: docx-num-5-3;
+  }
+  p.docx-num-5-3:before {
+    content: "\9";
+    counter-increment: docx-num-5-3;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-3 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 144.00pt;
+  }
+  p.docx-num-5-3 {
+    counter-reset: docx-num-5-4;
+  }
+  p.docx-num-5-4:before {
+    content: "\9";
+    counter-increment: docx-num-5-4;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-4 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 180.00pt;
+  }
+  p.docx-num-5-4 {
+    counter-reset: docx-num-5-5;
+  }
+  p.docx-num-5-5:before {
+    content: "\9";
+    counter-increment: docx-num-5-5;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-5 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 216.00pt;
+  }
+  p.docx-num-5-5 {
+    counter-reset: docx-num-5-6;
+  }
+  p.docx-num-5-6:before {
+    content: "\9";
+    counter-increment: docx-num-5-6;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-6 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 252.00pt;
+  }
+  p.docx-num-5-6 {
+    counter-reset: docx-num-5-7;
+  }
+  p.docx-num-5-7:before {
+    content: "\9";
+    counter-increment: docx-num-5-7;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-7 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 288.00pt;
+  }
+  p.docx-num-5-7 {
+    counter-reset: docx-num-5-8;
+  }
+  p.docx-num-5-8:before {
+    content: "\9";
+    counter-increment: docx-num-5-8;
+    font-family: Symbol;
+    min-height: 10.00pt;
+    font-size: 10.00pt;
+  }
+  p.docx-num-5-8 {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    text-indent: -18.00pt;
+    margin-left: 324.00pt;
+  }
+  .docx-wrapper {
+    counter-reset: docx-num-2-0 docx-num-3-0 docx-num-1-0 docx-num-7-0 docx-num-4-0 docx-num-6-0 docx-num-5-0;
+  }
+</style>
+<div class="docx-wrapper">
+  <section class="docx" style="padding: 72pt; width: 595.3pt; min-height: 841.9pt;">
+    <article>
+      <p><strong style="color:#156082; font-size:20pt; font-weight:bold; min-height:20pt">What is Acne?</strong>
+      </p>
+      <p><span>Acne is a common skin condition characterized by the presence of pimples, blackheads, and whiteheads, primarily affecting the face, neck, back, and chest. It occurs when hair follicles become clogged with oil (sebum), dead skin cells, and sometimes bacteria, leading to inflammation and various types of lesions. While acne is most prevalent during adolescence, it can affect individuals of all ages, including adults</span><a href="https://www.webmd.com/skin-problems-and-treatments/acne/understanding-acne-basics"><span class="docx_hyperlink">1</span></a><a href="https://www.mayoclinic.org/diseases-conditions/acne/symptoms-causes/syc-20368047"><span class="docx_hyperlink">3</span></a><a href="https://www.healthdirect.gov.au/acne"><span class="docx_hyperlink">4</span></a><span>.</span>
+      </p>
+      <p><strong style="color:#156082; font-size:20pt; font-weight:bold; min-height:20pt">Types of Acne</strong><strong style="color:#156082; font-size:20pt; font-weight:bold; min-height:20pt"> </strong>
+      </p>
+      <p><span>Acne can be classified into several types based on the nature of the lesions and their severity. Here are the main types:</span>
+      </p>
+      <p><strong style="font-weight:bold">1. Acne Vulgaris</strong>
+      </p>
+      <p class="docx-num-1-0"><strong style="font-weight:bold">Description</strong><span>: This is the most common form of acne, typically seen in teenagers. It manifests as blackheads (open </span><span>comedones</span><span>), whiteheads (closed </span><span>comedones</span><span>), papules (small red bumps), pustules (papules with pus), and sometimes cysts or nodules.</span>
+      </p>
+      <p class="docx-num-1-0"><strong style="font-weight:bold">Characteristics</strong><span>: </span><span>Generally</span><span> lasts for 3 to 5 years but can persist longer. It tends to be more severe in males during adolescence but can be ongoing in females into adulthood</span><a href="https://www.healthdirect.gov.au/acne"><span class="docx_hyperlink">4</span></a><a href="https://my.clevelandclinic.org/health/diseases/12233-acne"><span class="docx_hyperlink">6</span></a><span>.</span>
+      </p>
+      <p><strong style="font-weight:bold">2. Cystic Acne</strong>
+      </p>
+      <p class="docx-num-2-0"><strong style="font-weight:bold">Description</strong><span>: The most severe form of acne, cystic acne occurs when oil and dead skin cells build up deep within hair follicles, leading to painful, pus-filled lumps beneath the skin.</span>
+      </p>
+      <p class="docx-num-2-0"><strong style="font-weight:bold">Characteristics</strong><span>: Cystic lesions can cause significant scarring and emotional distress due to their appearance and discomfort. This type often requires medical intervention for effective treatment</span><a href="https://www.mayoclinic.org/diseases-conditions/acne/symptoms-causes/syc-20368047"><span class="docx_hyperlink">3</span></a><a href="https://www.pennmedicine.org/for-patients-and-visitors/patient-information/conditions-treated-a-to-z/acne"><span class="docx_hyperlink">5</span></a><a href="https://my.clevelandclinic.org/health/diseases/12233-acne"><span class="docx_hyperlink">6</span></a><span>.</span>
+      </p>
+      <p><strong style="font-weight:bold">3. Hormonal Acne</strong>
+      </p>
+      <p class="docx-num-3-0"><strong style="font-weight:bold">Description</strong><span>: Often linked to hormonal changes, this type commonly affects women during menstrual cycles, pregnancy, or menopause.</span>
+      </p>
+      <p class="docx-num-3-0"><strong style="font-weight:bold">Characteristics</strong><span>: Hormonal acne usually appears along the jawline and chin and may require specific treatments targeting hormonal imbalances</span><a href="https://www.yalemedicine.org/conditions/acne"><span class="docx_hyperlink">2</span></a><a href="https://www.healthdirect.gov.au/acne"><span class="docx_hyperlink">4</span></a><span>.</span>
+      </p>
+      <p><strong style="font-weight:bold">4. Adult Acne</strong>
+      </p>
+      <p class="docx-num-4-0"><strong style="font-weight:bold">Description</strong><span>: This type refers to acne that persists or develops in adulthood, often influenced by hormonal fluctuations or stress.</span>
+      </p>
+      <p class="docx-num-4-0"><strong style="font-weight:bold">Characteristics</strong><span>: It may present similarly to acne vulgaris but can also include deeper cystic lesions. Women are more likely to experience mild to moderate forms into their 30s and beyond</span><a href="https://www.webmd.com/skin-problems-and-treatments/acne/understanding-acne-basics"><span class="docx_hyperlink">1</span></a><a href="https://www.healthdirect.gov.au/acne"><span class="docx_hyperlink">4</span></a><span>.</span>
+      </p>
+      <p><strong style="font-weight:bold">5. Acne </strong><strong style="font-weight:bold">Mechanica</strong>
+      </p>
+      <p class="docx-num-5-0"><strong style="font-weight:bold">Description</strong><span>: Caused by friction or pressure on the skin, such as from sports equipment or tight clothing.</span>
+      </p>
+      <p class="docx-num-5-0"><strong style="font-weight:bold">Characteristics</strong><span>: This type often results in localized breakouts in areas where the skin is repeatedly irritated</span><a href="https://my.clevelandclinic.org/health/diseases/12233-acne"><span class="docx_hyperlink">6</span></a><a href="https://www.aad.org/public/diseases/acne/really-acne/overview"><span class="docx_hyperlink">7</span></a><span>.</span>
+      </p>
+      <p><strong style="font-weight:bold">6. Acne Rosacea</strong>
+      </p>
+      <p class="docx-num-6-0"><strong style="font-weight:bold">Description</strong><span>: A chronic inflammatory condition that primarily affects the face, characterized by redness, visible blood vessels, and sometimes pustules.</span>
+      </p>
+      <p class="docx-num-6-0"><strong style="font-weight:bold">Characteristics</strong><span>: Unlike typical acne, rosacea does not involve </span><span>comedones</span><span> and is more common in adults over 30</span><a href="https://www.pennmedicine.org/for-patients-and-visitors/patient-information/conditions-treated-a-to-z/acne"><span class="docx_hyperlink">5</span></a><a href="https://medlineplus.gov/ency/article/000873.htm"><span class="docx_hyperlink">8</span></a><span>.</span>
+      </p>
+      <p style="margin-left: 18pt;"><strong style="color:#156082; font-size:20pt; font-weight:bold; min-height:20pt">When to Consultant a </strong><strong style="color:#156082; font-size:20pt; font-weight:bold; min-height:20pt">Doctor</strong><strong style="color:#156082; font-size:20pt; font-weight:bold; min-height:20pt">?</strong>
+      </p>
+      <p><span>Consultation with a healthcare provider or dermatologist is advisable under the following circumstances:</span>
+      </p>
+      <p class="docx-num-7-0"><strong style="font-weight:bold">Persistent Symptoms</strong><span>: If acne does not improve with over-the-counter treatments after several weeks.</span>
+      </p>
+      <p class="docx-num-7-0"><strong style="font-weight:bold">Severe Cases</strong><span>: If experiencing cystic lesions or widespread inflammation that causes pain or discomfort.</span>
+      </p>
+      <p class="docx-num-7-0"><strong style="font-weight:bold">Scarring Concerns</strong><span>: If there is a risk of scarring or if existing scars are causing emotional distress.</span>
+      </p>
+      <p class="docx-num-7-0"><strong style="font-weight:bold">Hormonal Issues</strong><span>: If acne appears linked to hormonal changes or cycles that disrupt daily life.</span>
+      </p>
+      <p class="docx-num-7-0"><strong style="font-weight:bold">Emotional Impact</strong><span>: If acne significantly affects self-esteem or mental health.</span>
+      </p>
+      <p><span>Early intervention can reduce the risk of scarring and help manage emotional distress associated with this condition</span>
+      </p>
+    </article>
+  </section>
+</div>
+  </head>
+</html>
